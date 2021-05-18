@@ -33,8 +33,7 @@ class Service(
         if (shortUrl != null) return shortUrl
 
         shortUrl = urlGenerator.next()
-        dao.setUrlGeneratorCounter(urlGenerator.counter)
-        dao.setGeneratedUrlLength(urlGenerator.generatedUrlLength)
+        dao.setUrlGeneratorProperties(urlGenerator.counter, urlGenerator.generatedUrlLength)
 
         dao.add(shortUrl, forwardUrl)
         return shortUrl

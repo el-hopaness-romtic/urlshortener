@@ -34,18 +34,13 @@ class Dao(
         UrlGeneratorProperties.selectAll().single()[UrlGeneratorProperties.counter]
     }
 
-    fun setUrlGeneratorCounter(counter: Long) = transaction {
-        UrlGeneratorProperties.update {
-            it[UrlGeneratorProperties.counter] = counter
-        }
-    }
-
     fun getGeneratedUrlLength() = transaction {
         UrlGeneratorProperties.selectAll().single()[UrlGeneratorProperties.generatedUrlLength]
     }
 
-    fun setGeneratedUrlLength(generatedUrlLength: Int) = transaction {
+    fun setUrlGeneratorProperties(counter: Long, generatedUrlLength: Int) = transaction {
         UrlGeneratorProperties.update {
+            it[UrlGeneratorProperties.counter] = UrlGeneratorProperties.counter
             it[UrlGeneratorProperties.generatedUrlLength] = generatedUrlLength
         }
     }

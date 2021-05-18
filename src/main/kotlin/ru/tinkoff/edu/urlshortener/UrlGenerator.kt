@@ -43,35 +43,19 @@ class UrlGenerator {
 
         return encode(counter++)
     }
+}
 
-    /**
-     * Decode a Base X encoded string into the number
-     * Arguments:
-     * `string`: The encoded string
-     * `alphabet`: The alphabet to use for decoding
-     *
-     fun decode(string: String) :Int{
-     val strlen = string.length
-     var num = 0
+/**
+ * Returns the value of this raised to the power of the argument
+ *
+ * @param power The exponent (power > 0)
+ */
+fun Int.pow(power: Int): Long {
+    var result: Long = this.toLong()
 
-     var idx = 0
-     var power: Int
-     for (char in string) {
-     power = (strlen - (idx + 1))
-     num += alphabet.indexOf(char) * base.pow(power)
-     idx += 1
-     }
+    repeat(power - 1) {
+        result *= this
+    }
 
-     return num
-     }
-
-     private fun Int.pow(power: Int): Int {
-     var res = 1
-
-     repeat(power) {
-     res *= this
-     }
-
-     return res
-     }*/
+    return result
 }
