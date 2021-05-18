@@ -1,10 +1,13 @@
 package ru.tinkoff.edu.urlshortener
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
 @Component
-class UrlGenerator {
-    private val alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+class UrlGenerator(
+    @Value("\${urlgenerator.alphabet}")
+    private val alphabet: String
+) {
     private val base = alphabet.length
 
     var maxCount: Long = 0

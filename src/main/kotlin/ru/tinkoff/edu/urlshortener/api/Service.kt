@@ -15,7 +15,6 @@ class Service(
     init {
         urlGenerator.generatedUrlLength = dao.getGeneratedUrlLength()
         urlGenerator.counter = dao.getUrlGeneratorCounter()
-        println(urlGenerator.maxCount)
     }
 
     fun find(shortUrl: String) = dao.find(shortUrl)
