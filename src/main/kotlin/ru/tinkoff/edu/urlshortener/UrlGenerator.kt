@@ -26,18 +26,18 @@ class UrlGenerator(
      * @param number The number to encode
      */
     fun encode(number: Long): String {
-        val arr = mutableListOf<Char>()
+        val arr = StringBuilder(generatedUrlLength)
         var numerator = number
         var remainder: Int
 
         do {
             remainder = (numerator % base).toInt()
             numerator = numerator / base
-            arr.add(alphabet[remainder])
+            arr.append(alphabet[remainder])
         } while (numerator != 0L)
 
-        return arr.apply { reverse() }
-            .joinToString(separator = "")
+        return arr.reverse()
+            .toString()
             .padStart(generatedUrlLength, '0')
     }
 
