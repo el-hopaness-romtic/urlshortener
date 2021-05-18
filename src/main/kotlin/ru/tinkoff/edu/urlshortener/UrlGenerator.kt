@@ -38,7 +38,7 @@ class UrlGenerator(
 
         return arr.reverse()
             .toString()
-            .padStart(generatedUrlLength, '0')
+            .padStart(generatedUrlLength, alphabet[0])
     }
 
     fun next(): String {
